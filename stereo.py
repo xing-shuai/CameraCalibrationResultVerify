@@ -100,11 +100,11 @@ def init():
                   dtype=np.float32)
 
     global hand_model
-    hand_model = ModelFromExport("/home/shuai/Pictures/calibration/hand.obj", vertex_format="VN")
+    hand_model = ModelFromExport("resources/models/hand.obj", vertex_format="VN")
 
     global cube_model
     cube_model = Model([cube_vertices],
-                       texture_path=["/home/shuai/code/python/PyOpenGL/resources/images/awesomeface.png"])
+                       texture_path=["resources/images/awesomeface.png"])
 
     global cube_shader_program
     cube_shader_program = ShaderProgram("resources/shaders/hand_shader.vs", "resources/shaders/hand_shader.fg")
