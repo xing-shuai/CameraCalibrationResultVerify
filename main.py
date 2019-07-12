@@ -11,7 +11,7 @@ SCR_WIDTH = 800
 SCR_HEIGHT = 800
 
 camera = Camera3D(glm.vec3(0.0, 5.0, 30.0))
-window = GWindow(b"demo", SCR_WIDTH, SCR_HEIGHT, InputProcess(camera, SCR_WIDTH, SCR_HEIGHT), keep_mouse_stay=True)
+window = GWindow(b"demo", SCR_WIDTH, SCR_HEIGHT, InputProcess(camera), keep_mouse_stay=True)
 
 light_color = (1.0, 1.0, 1.0)
 hand_color = (0.7, 0.7, 0.7)
@@ -100,7 +100,7 @@ def render():
     glPointSize(5)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-    projection = glm.perspective(glm.radians(camera.zoom), SCR_WIDTH * 1.0 / SCR_HEIGHT, 0.1, 1000)
+    projection = glm.perspective(glm.radians(camera.zoom), window.window_width * 1.0 / window.window_height, 0.1, 1000)
     view = camera.get_view_matrix()
 
     #
