@@ -9,6 +9,7 @@ class GWindow:
         self.window_width = window_width
         self.window_height = window_height
         self.io_process = i_process
+        self.io_process.set_window_size(window_width, window_height)
         self.delta_time = 0.0
         self.last_frame = 0.0
         self.fps_count = 0
@@ -23,6 +24,12 @@ class GWindow:
         self.__init_window_context()
         self.__bind_io_process()
 
+    def reshape(self, w, h):
+        glViewport(0, 0, w, h)
+        self.window_height = h
+        self.window_width = w
+        self.io_process.set_window_size(w, h)
+
     def __init_window_context(self):
         glutInit()
         glutInitContextVersion(3, 3)
@@ -35,7 +42,7 @@ class GWindow:
 
     def __bind_io_process(self):
         glutDisplayFunc(self.draw_function)
-        glutReshapeFunc(self.io_process.reshape)
+        glutReshapeFunc(self.reshape)
         glutKeyboardFunc(self.io_process.keys_down)
         glutKeyboardUpFunc(self.io_process.keys_up)
         glutPassiveMotionFunc(self.io_process.mouse_move)

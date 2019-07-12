@@ -17,15 +17,17 @@ keys = {
 
 
 class InputProcess:
-    def __init__(self, camera, window_width, window_height):
+    def __init__(self, camera):
         self.camera = camera
-        self.window_width = window_width
-        self.window_height = window_height
 
-        self.last_x = window_width / 2.0
-        self.last_y = window_height / 2.0
         self.first_mouse = True
         self.mouse_leave = True
+
+    def set_window_size(self, window_width, window_height):
+        self.window_width = window_width
+        self.window_height = window_height
+        self.last_x = window_width / 2.0
+        self.last_y = window_height / 2.0
 
     def keys_down(self, key, x, y):
         if ord(key) == 27:
@@ -94,9 +96,6 @@ class InputProcess:
 
         if ord(key) == 108:
             keys["l"] = False
-
-    def reshape(self, w, h):
-        glViewport(0, 0, w, h)
 
     def process_keys_by_frame(self, delta_time):
         if self.camera.camera_keep_static is False:
