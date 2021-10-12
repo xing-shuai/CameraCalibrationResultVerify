@@ -11,7 +11,7 @@ kiwisolver==1.1.0
 matplotlib==3.1.1
 networkx==2.3
 numpy==1.16.4
-opencv-python==4.1.0.25
+opencv-python==4.2.0.32
 PCV==1.0
 Pillow==6.2.0
 pvc==0.3.0
