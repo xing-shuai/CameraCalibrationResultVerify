@@ -13,7 +13,7 @@ networkx==2.3
 numpy==1.16.4
 opencv-python==4.1.0.25
 PCV==1.0
-Pillow==6.2.0
+Pillow==9.0.0
 pvc==0.3.0
 pycollada==0.6
 pygame==1.9.6
